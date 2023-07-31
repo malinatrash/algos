@@ -1,2 +1,2 @@
-# Algorithm Practice
- Репозиторий с решениями задчас с LeetCode
+# Solving-Algorithmic-Problems
+ Репозиторий с решениями задач с LeetCode
