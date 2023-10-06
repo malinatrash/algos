@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 var canConstruct = function (ransomNote, magazine) {
-	return new Set(magazine).includes(new Set(ransomNote))
-}
+	return magazine.includes(ransomNote);
+};
 
-console.log(canConstruct('aa', 'aab'))
+console.log(canConstruct('aa', 'aab'));
