@@ -1,11 +1,5 @@
-let count = 0;
 const recursiveBinarySearch = (array, item, start, end) => {
-	count++;
-	console.log(`Иттерация: ${count}`);
 	let middle = Math.floor((start + end) / 2);
-	console.log(`Start: ${start}`);
-	console.log(`End: ${end}`);
-	console.log(`Middle: ${middle}`);
 	if (item === array[middle]) {
 		return middle;
 	}
