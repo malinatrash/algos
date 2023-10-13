@@ -3,16 +3,16 @@
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-	// let unique = 1
-	// for (let i = 1; i < nums.length; i++) {
-	// 	if (nums[i] != nums[i - 1]) {
-	// 		nums[unique] = nums[i]
-	// 		unique++
-	// 	}
-	// }
-	// return unique
-	return Array.from(new Set(nums)).length
-}
+	for (let i = 0, j = 1; j < nums.length; j++) {
+		if (nums[i] != nums[j]) {
+			i++;
+			nums[i] = nums[j];
+		}
+		if (j == nums.length - 1) {
+			return i + 1;
+		}
+	}
+};
 
-console.log(removeDuplicates([1, 1, 2]))
-console.log(removeDuplicates([1221, 124, 1, 2, 21, 4, 5, 1]))
+console.log(removeDuplicates([1, 1, 2]));
+console.log(removeDuplicates([1221, 124, 1, 2, 21, 4, 5, 1]));
