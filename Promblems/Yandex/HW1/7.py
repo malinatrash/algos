@@ -1,20 +1,29 @@
 n, k, m = map(int, input().split())
 
-detal_count = 0
-splav_remain = n % k
-if splav_remain == 0:
-    zagotovki_count = n / k
-    zagotovka_kg_remain = k * zagotovki_count
+
+def solve(n, k, m):
     detal_count = 0
-    while zagotovka_kg_remain > m:
-        zagotovka_kg_remain -= k
-        detal_count += k // m
-else:
-    while n >= k:
-        splav_remain = n % k
-        zagotovki_count = splav_remain / k
+    if n == 0 or k == 0 or m == 0:
+        print(0)
+        return
+    if n % k == 0:
+        zagotovki_count = n / k
         zagotovka_kg_remain = k * zagotovki_count
+        detal_count = 0
         while zagotovka_kg_remain > m:
             zagotovka_kg_remain -= k
             detal_count += k // m
-print(detal_count)
+    else:
+        while n >= k:
+            zagotovki_count = n // k
+            n %= k
+            zagotovka_kg_remain = k * zagotovki_count
+            while zagotovka_kg_remain > m:
+                zagotovka_kg_remain -= k
+                detal_count += k // m
+                n += k % m
+            n += zagotovka_kg_remain
+    print(detal_count)
+
+
+solve(n, k, m)
