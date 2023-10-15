@@ -4,7 +4,9 @@
  * @return {boolean}
  */
 var canConstruct = function (ransomNote, magazine) {
-	return magazine.includes(ransomNote);
+	for (let i = 0; i < magazine.length; i++) {
+		if (ransomNote.includes())
+	}
 };
 
 console.log(canConstruct('aa', 'aab'));
