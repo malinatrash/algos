@@ -4,31 +4,34 @@
  * @return {number}
  */
 var strStr = function (haystack, needle) {
-	if (
-		haystack.length == 0 ||
-		needle.length === 0 ||
-		!haystack.includes(needle)
-	) {
-		return -1;
-	}
-	if (needle === haystack) {
-		return 0;
-	}
-	let cur = 0;
-	for (let i = 0; i < haystack.length; i++) {
-		if (haystack[i] === needle[cur]) {
-			console.log(i);
-			cur++;
-		} else {
-			cur = 0;
+	for (let i = 0; i <= haystack.length - needle.length; i++) {
+		let found = true;
+		for (let j = 0; j < needle.length; j++) {
+			if (haystack[i + j] !== needle[j]) {
+				found = false;
+				break;
+			}
 		}
-		if (cur === needle.length) {
-			return i === 0 ? 0 : i - cur + 1;
+		if (found) {
+			return i;
 		}
 	}
+
 	return -1;
 };
 
-const haystack = 'mississippi';
-const needle = 'issip';
-console.log(strStr(haystack, needle));
+// Recursive solution
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var indexOf = function (haystack, needle, startIndex = 0) {
+	if (startIndex >= haystack.length) {
+		return -1;
+	}
+	if (haystack.startsWith(needle, startIndex)) {
+		return startIndex;
+	}
+	return indexOf(haystack, needle, startIndex + 1);
+};
