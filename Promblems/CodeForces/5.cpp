@@ -3,15 +3,11 @@
 using namespace std;
  
 void solve(vector<int> p)	{
-	for (int i = 0; i < p.size(); i++) {
-		for (int j = i + 1; j < p.size(); j++) {
-			for (int k = j + 1; k < p.size(); k++) {
-				if ((i < j && j < k) && (p[i] < p[j] && p[j] > p[k])) {
-					cout << "YES" << endl << i+1 << " " << j+1 << " " << k+1 << endl;
-					return;
-				}
-			}
-		}
+	for (int i = 1; i < p.size() - 1; i++) {
+		if (p[i] > p[i - 1] && p[i] > p[i + 1]) {
+            cout << "YES\n" <<  i << " " << i + 1 << " " << i + 2 << endl;
+            return;
+        }
 	}
 	cout << "NO" << endl;
 }
@@ -19,7 +15,7 @@ void solve(vector<int> p)	{
 int main() {
     int T; 
     cin >> T;
-    for (int _ = 0; _ < T; _++) {
+    while T-- {
         int n; 
         cin >> n;
         vector<int> p(n);
