@@ -1,2 +1,2 @@
-# Solving-Algorithmic-Problems
+# algos
  Репозиторий с решениями алгоритмических проблем
