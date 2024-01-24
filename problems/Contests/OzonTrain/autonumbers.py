@@ -22,6 +22,7 @@ def is_valid_car_number(s):
 
     return result
 
+
 t = int(input())
 for i in range(0, t):
     input_str = input()
