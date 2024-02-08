@@ -4,7 +4,6 @@ def is_valid_car_number(s):
     pattern1 = re.compile(r'^[A-Z]\d\d[A-Z]{2}$')
     pattern2 = re.compile(r'^[A-Z]\d[A-Z]{2}$')
 
-   
     def is_valid_part(part):
         return pattern1.match(part) or pattern2.match(part)
 
